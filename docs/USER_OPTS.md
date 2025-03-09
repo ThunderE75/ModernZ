@@ -26,19 +26,22 @@ Create `modernz.conf` in your mpv script-opts directory:
 
 ### OSC behaviour and scaling
 
-| Option                  | Value | Description                                                |
-| ----------------------- | ----- | ---------------------------------------------------------- |
-| hidetimeout             | 2000  | time (in ms) before OSC hides if no mouse movement         |
-| seek_resets_hidetimeout | yes   | if seeking should reset the hidetimeout                    |
-| fadeduration            | 250   | fade-out duration (in ms), set to `"0"` for no fade        |
-| minmousemove            | 0     | minimum mouse movement (in pixels) required to show OSC    |
-| bottomhover             | yes   | show OSC only when hovering at the bottom                  |
-| bottomhover_zone        | 130   | height of hover zone for bottomhover (in pixels)           |
-| osc_on_seek             | no    | show OSC when seeking                                      |
-| mouse_seek_pause        | yes   | pause video while seeking with mouse move (on button hold) |
-| vidscale                | auto  | scale osc with the video. (set to `"no"` to disable)       |
-| scalewindowed           | 1.0   | osc scale factor when windowed                             |
-| scalefullscreen         | 1.0   | osc scale factor when fullscreen                           |
+| Option                  | Value | Description                                                            |
+| ----------------------- | ----- | ---------------------------------------------------------------------- |
+| hidetimeout             | 2000  | time (in ms) before OSC hides if no mouse movement                     |
+| seek_resets_hidetimeout | yes   | if seeking should reset the hidetimeout                                |
+| fadeduration            | 200   | fade-out duration (in ms), set to `"0"` for no fade                    |
+| fadein                  | no    | whether to enable fade-in effect                                       |
+| minmousemove            | 0     | minimum mouse movement (in pixels) required to show OSC                |
+| bottomhover             | yes   | show OSC only when hovering at the bottom                              |
+| bottomhover_zone        | 130   | height of hover zone for bottomhover (in pixels)                       |
+| osc_on_seek             | no    | show OSC when seeking                                                  |
+| osc_on_start            | no    | show OSC on start of every file                                        |
+| mouse_seek_pause        | yes   | pause video while seeking with mouse move (on button hold)             |
+| force_seek_tooltip      | no    | force show seekbar tooltip on mouse drag, even if not hovering seekbar |
+| vidscale                | auto  | scale osc with the video. (set to `"no"` to disable)                   |
+| scalewindowed           | 1.0   | osc scale factor when windowed                                         |
+| scalefullscreen         | 1.0   | osc scale factor when fullscreen                                       |
 
 ### Elements display
 
@@ -100,6 +103,8 @@ Create `modernz.conf` in your mpv script-opts directory:
 | ontop_button               | yes           | show `window on top (pin)` button                                                                                                                                                                      |
 | loop_button                | no            | show `loop` button                                                                                                                                                                                     |
 | speed_button               | no            | show speed control button                                                                                                                                                                              |
+| speed_button_click         | 1             | speed change amount per click                                                                                                                                                                          |
+| speed_button_scroll        | 0.25          | speed change amount on scroll                                                                                                                                                                          |
 | loop_in_pause              | yes           | enable looping by right-clicking pause                                                                                                                                                                 |
 | buttons_always_active      | none          | force buttons to always be active. can add: `playlist_prev`, `playlist_next`                                                                                                                           |
 | info_button                | yes           | show `info (stats)` button                                                                                                                                                                             |
@@ -248,6 +253,7 @@ Customize the button function based on mouse actions.
 |                               | playlist_next_mbtn_right_command | `script-binding select/select-playlist; script-message-to modernz osc-hide`     |
 | Fullscreen Button             | fullscreen_mbtn_left_command     | `cycle fullscreen`                                                              |
 |                               | fullscreen_mbtn_right_command    | `cycle window-maximized`                                                        |
+| Info Button                   | info_mbtn_left_command           | `script-binding stats/display-page-1-toggle`                                    |
 
 ### Auto Profile
 
